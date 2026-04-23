@@ -2,13 +2,13 @@
 
 ## Ingrédients
 
-500 g de farine
-10 g de levure boulangère instantanée
-4 œufs
-70 g de sucre
-200 g de beurre mou
-50 g d’eau tiède
-1 pincée de sel
+- 500 g de farine
+- 10 g de levure boulangère instantanée (Lallemand levure sèche de boulangerie - 500 g de qualité boulangère professionnelle)
+- 4 œufs
+- 70 g de sucre
+- 200 g de beurre mou
+- 100 g d’eau tiède
+- 1 pincée de sel (10g)
 
 ## Étapes
 
