@@ -2,7 +2,7 @@
 
 ## Ingrédients
 
-- 500 g de farine
+- 500 g de farine (> 11/12g de proteine)
 - 10 g de levure boulangère instantanée (Lallemand levure sèche de boulangerie - 500 g de qualité boulangère professionnelle)
 - 4 œufs
 - 70 g de sucre
