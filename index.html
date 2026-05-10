@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Recettes</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">🍽️ Mes Recettes</h1>
+      <div class="header-actions">
+        <div class="search-wrapper">
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Rechercher une recette…"
+            aria-label="Rechercher une recette"
+          />
+        </div>
+        <button id="btnNewRecipe" class="btn btn-primary">
+          ＋ Nouvelle recette
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FILTERS ===== -->
+  <nav class="filters" aria-label="Filtrer par catégorie">
+    <button class="filter-btn active" data-category="all">Toutes</button>
+    <button class="filter-btn" data-category="entrée">Entrées</button>
+    <button class="filter-btn" data-category="plat">Plats</button>
+    <button class="filter-btn" data-category="dessert">Desserts</button>
+    <button class="filter-btn" data-category="boisson">Boissons</button>
+    <button class="filter-btn" data-category="autre">Autres</button>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container">
+    <p class="empty-state" id="emptyState" hidden>
+      Aucune recette trouvée. Créez-en une&nbsp;!
+    </p>
+    <div class="recipe-grid" id="recipeGrid" role="list"></div>
+  </main>
+
+  <!-- ===== RECIPE DETAIL MODAL ===== -->
+  <div class="modal-overlay" id="detailOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal modal-detail">
+      <button class="modal-close" id="detailClose" aria-label="Fermer">✕</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- ===== ADD / EDIT MODAL ===== -->
+  <div class="modal-overlay" id="formOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <div class="modal modal-form">
+      <button class="modal-close" id="formClose" aria-label="Fermer">✕</button>
+      <h2 id="formTitle">Nouvelle recette</h2>
+
+      <form id="recipeForm" novalidate>
+        <input type="hidden" id="recipeId" />
+
+        <div class="form-row">
+          <div class="form-group form-group--grow">
+            <label for="recipeName">Nom <span aria-hidden="true">*</span></label>
+            <input type="text" id="recipeName" required placeholder="Ex. : Tarte aux pommes" />
+          </div>
+          <div class="form-group">
+            <label for="recipeCategory">Catégorie</label>
+            <select id="recipeCategory">
+              <option value="entrée">Entrée</option>
+              <option value="plat" selected>Plat</option>
+              <option value="dessert">Dessert</option>
+              <option value="boisson">Boisson</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="recipePrepTime">Préparation (min)</label>
+            <input type="number" id="recipePrepTime" min="0" placeholder="15" />
+          </div>
+          <div class="form-group">
+            <label for="recipeCookTime">Cuisson (min)</label>
+            <input type="number" id="recipeCookTime" min="0" placeholder="30" />
+          </div>
+          <div class="form-group">
+            <label for="recipeServings">Portions</label>
+            <input type="number" id="recipeServings" min="1" placeholder="4" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="recipeIngredients">
+            Ingrédients <span class="hint">(un par ligne)</span>
+          </label>
+          <textarea
+            id="recipeIngredients"
+            rows="5"
+            placeholder="200 g de farine&#10;2 œufs&#10;100 g de beurre"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="recipeSteps">
+            Étapes <span class="hint">(une par ligne)</span>
+          </label>
+          <textarea
+            id="recipeSteps"
+            rows="6"
+            placeholder="Préchauffer le four à 180 °C.&#10;Mélanger la farine et le beurre.&#10;…"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="recipeNotes">Notes</label>
+          <textarea id="recipeNotes" rows="2" placeholder="Conseils, variantes…"></textarea>
+        </div>
+
+        <p class="form-error" id="formError" hidden></p>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="formCancel">Annuler</button>
+          <button type="submit" class="btn btn-primary" id="formSubmit">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== DELETE CONFIRM MODAL ===== -->
+  <div class="modal-overlay" id="deleteOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+    <div class="modal modal-confirm">
+      <h2 id="deleteTitle">Supprimer la recette&nbsp;?</h2>
+      <p id="deleteMessage"></p>
+      <div class="form-actions">
+        <button class="btn btn-secondary" id="deleteCancelBtn">Annuler</button>
+        <button class="btn btn-danger" id="deleteConfirmBtn">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
